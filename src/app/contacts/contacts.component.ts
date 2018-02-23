@@ -2,6 +2,9 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ContactService } from '../contact.service';
 import { Contact } from '../contact';
 
+/*
+* Component contains logic and resources for generating and manipulating the contacts list on the ui
+*/
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',

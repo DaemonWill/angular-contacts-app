@@ -1,7 +1,9 @@
+<!-- AddBtn reveals form to allow the user to input data for new contact creation -->
 <button class="addBtn" (click)="toggleAddFlag()">Add</button>
 <button class="undoRedoBtn" (click)="undoAction()">Undo</button>
 <button class="undoRedoBtn" (click)="redoAction()">Redo</button>
 
+<!-- form to create a new user and append to current stack -->
 <div *ngIf="addFlag">
   <span>
     name: <input type="text" [(ngModel)]="contactInfo.name" id="name" required name="name" />
@@ -11,6 +13,7 @@
     home: <input type="number" [(ngModel)]="contactInfo.home" id="home" name="home"/>
   </span>
   <div>
+    <!-- hide form upon submission -->
     <button class="btn btn-success" (click)="addContact(); toggleAddFlag()">Submit</button>
   </div>
 </div>
@@ -19,8 +22,10 @@
   <h2>Contacts</h2>
 </div>
 
+<!-- Contacts displayed in a structured box layout, new contacts added to the bottom-left most corner (responsively)-->
 <div class="grid">
   <div class="outerBox" *ngFor="let contact of contacts">
+    <!-- clicking the x button on the box removes contact from list and simulaneously updates grid -->
     <button class="destroy" (click)="removeContact(contact)">X</button>
     <div class="innerBox">
       <h3>{{contact.name}}</h3>

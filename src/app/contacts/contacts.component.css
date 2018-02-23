@@ -110,3 +110,7 @@ button.destroy {
   border: 0px;
   color: white;
 }
+
+input{
+  margin: 8px;
+}

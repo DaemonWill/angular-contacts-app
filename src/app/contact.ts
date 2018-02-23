@@ -16,7 +16,7 @@ export class Contact {
       this.dimension = newDimension;
       this.mobile = newMobile;
       this.home = newHome;
-      //generate a unique identifier
+      //generate a unique identifier by default
       this.id = uuid();
   };
 
