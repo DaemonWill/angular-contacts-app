@@ -1,12 +1,10 @@
 # angular-contacts-app
 A simple app to manage a list of contacts using Angular5
 
-
+[![Build Status](https://travis-ci.org/DaemonWill/angular-contacts-app.svg?branch=master)](https://travis-ci.org/DaemonWill/angular-contacts-app)
 Travis builds: https://travis-ci.org/DaemonWill/angular-contacts-app
 
 ==================================================================
-### App-Link :
-
 ### Author : Daimen Q. Williams
 ###### [DaimenWill@gmail.com](mailto:DaimenWill@gmail.com)
 
