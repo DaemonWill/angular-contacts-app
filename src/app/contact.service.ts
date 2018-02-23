@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { Contact } from './contact';
 
 /*
-* Service will keep and manage 4 stacks
+* Service will keep and manage 5 stacks
 * DEFAULT_CONTACTS - starting contacts for when application starts/is reset.
 * current - list of contacts to be presented in app
 * removed - list of contacts that have been recently removed and can be re-added to current
 * actions - list of actions that have occured, actions are "add" or "remove"
+* undoneContacts - list of contacts who were added into the stack just to be taken away
 */
 @Injectable()
 export class ContactService {
@@ -24,6 +25,7 @@ export class ContactService {
   //track wheter to undo/redo additions or removals
   private actions : string[] = [];
   private undoneActions : string[] = [];
+  private undoneContacts : Contact[] = [];
 
   /*
   * Creates a new Contact instance given validated user input
@@ -83,9 +85,9 @@ export class ContactService {
     if(this.actions.length > 0){
       let action = this.actions.pop();
       if(action == "add"){
-        //remove the last contact added to the current stack and add them to the front of the removed stack
+        //remove the last contact added to the current stack and add them to the front of the undoneContact stack
         let contact = this.current.pop();
-        this.removed.push(contact);
+        this.undoneContacts.push(contact);
         this.undoneActions.push(action);
       }
       else if(action == "remove"){
@@ -111,8 +113,8 @@ export class ContactService {
         this.actions.push(action);
       }
       else if(action == "add"){
-        //remove the last contact added to the removed stack and add them to the front of the current stack
-        let contact = this.removed.pop();
+        //remove the last contact added to the undoneContacts stack and add them to the front of the current stack
+        let contact = this.undoneContacts.pop();
         this.current.push(contact);
         this.actions.push(action);
       }
