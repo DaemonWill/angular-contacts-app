@@ -1,0 +1,58 @@
+div, button {
+  font-family: Tahoma, Geneva, sans-serif;
+  text-align: center;
+}
+
+button{
+  cursor: pointer;
+}
+
+div.grid{
+  margin: 0px;
+  width: 960px;
+  padding: 10px 10px;
+}
+
+div.outerBox {
+  border-radius: 8px;
+  margin: 10px;
+  height: 300px;
+  width: 300px;
+  max-height: 300px;
+  max-width: 300px;
+  position: relative;
+  float: left;
+  background-color: lightgrey;
+}
+
+div.innerBox {
+  position: relative;
+  top: 27px;
+  left: 27px;
+  height: 246px;
+  width: 246px;
+  background-color: lightgrey;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+button.addBoxBtn {
+  background-color: mediumseagreen;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  margin: 20px;
+}
+
+button.destroy {
+  font-size: 20px;
+  margin: 0px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: firebrick;
+  border: 0px;
+  color: white;
+}

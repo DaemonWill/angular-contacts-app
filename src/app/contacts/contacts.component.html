@@ -1,3 +1,12 @@
-<p>
-  contacts works!
-</p>
+<button class="addBtn" (click)="addContact()">Add</button>
+<button class="undoBtn" (click)="undoAction()">Undo</button>
+<button class="redoBtn" (click)="redoAction()">Redo</button>
+
+<div class="grid" *ngFor="let contact of contacts" (click)="selectContact(contact)">
+  <div class="outerBox">
+    <button class="destroy" (click)="removeContact($event, contact)">X</button>
+    <div class="innerBox">
+      <h3>{{contact.name}}</h3>
+    </div>
+  </div>
+</div>
