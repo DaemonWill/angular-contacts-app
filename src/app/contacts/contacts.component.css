@@ -7,29 +7,52 @@ button{
   cursor: pointer;
 }
 
-/*for cases not detailed below, content will be centered with minimum width allowed*/
-div.grid{
-  margin: 0px auto;
-  width: 1220px;
-  padding: 10px 10px;
+/*Screen size allows for a max of 1 box horizontally to show in grid*/
+@media only screen and (min-width: 304px){
+  div.grid {
+    margin: 0px auto;
+    width: 264px;
+    max-width: 264px;
+    padding: 10px 10px;
+  }
+}
+
+/*Screen size allows for a max of 2 boxes horizontally to show in grid*/
+@media only screen and (min-width: 548px){
+  div.grid {
+    margin: 0px auto;
+    width: 508px;
+    max-width: 508px;
+    padding: 10px 10px;
+  }
+}
+
+/*Screen size allows for a max of 3 boxes horizontally to show in grid*/
+@media only screen and (min-width: 792px){
+  div.grid {
+    margin: 0px auto;
+    width: 752px;
+    max-width: 452px;
+    padding: 10px 10px;
+  }
 }
 
 /*Screen size allows for a max of 4 boxes horizontally to show in grid*/
-@media only screen and (min-width: 1300px){
+@media only screen and (min-width: 1036px){
   div.grid {
     margin: 0px auto;
-    width: 1280px;
-    max-width: 1280px;
+    width: 996px;
+    max-width: 996px;
     padding: 10px 10px;
   }
 }
 
 /*Screen size allows for a max of 5 boxes horizontally to show in grid*/
-@media only screen and (min-width: 1620px){
-  div.grid {
+@media only screen and (min-width: 1280px){
+  div.grid{
     margin: 0px auto;
-    width: 1600px;
-    max-width: 1600px;
+    width: 1220px;
+    max-width: 1220px;
     padding: 10px 10px;
   }
 }

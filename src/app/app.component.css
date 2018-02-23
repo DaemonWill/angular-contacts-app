@@ -2,23 +2,8 @@
 body{
   background-color: PaleTurquoise;
   margin: 0px 0px;
+  width: device-width;
 }
-
-/*Screen size allows for a max of 4 boxes horizontally to show in grid
-@media only screen and (min-width: 1300px){
-  body{
-    width: 1320px;
-    margin: 0px;
-  }
-} */
-
-/*Screen size allows for a max of 5 boxes horizontally to show in grid
-@media only screen and (min-width: 1620px){
-  body{
-    width: 1640px;
-    margin: 0px;
-  }
-} */
 
 div.header{
   padding: 10px 10px;
