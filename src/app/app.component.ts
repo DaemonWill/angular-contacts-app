@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { ContactService } from './contact.service';
 
 @Component({
   selector: 'app-root',

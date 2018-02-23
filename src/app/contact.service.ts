@@ -18,12 +18,11 @@ export class ContactService {
     new Contact("Summer", "Earth", "replacement", 1112226666, 5556667777),
     new Contact("Morty", "Earth", "C-137", 1112227777, 5556667777)
   ];
-  //initiate the current contact list with a copy of the default contacts
-  private current : Contact[] = this.DEFAULT_CONTACTS.slice();
-  private removed : Contact[] = [];
+  private  current : Contact[] = [];
+  private  removed : Contact[] = [];
   //track wheter to undo/redo additions or removals
-  private actions : string[] = [];
-  private undoneActions : string[] = [];
+  private  actions : string[] = [];
+  private  undoneActions : string[] = [];
 
   /*
   * Creates a new Contact instance given validated user input
@@ -31,7 +30,7 @@ export class ContactService {
   */
   public makeContact(name: string, planet: string, dimension: string,
     mobile: number, home: number){
-      let newContact = new Contact(name, planet, dimension, mobile, home);
+      let newContact: Contact = new Contact(name, planet, dimension, mobile, home);
       return newContact;
   };
 
@@ -41,6 +40,7 @@ export class ContactService {
   public addContact(newContact: Contact){
     this.current.push(newContact);
     this.actions.push("add");
+    console.log(JSON.stringify(this.current));
   };
 
   /*
@@ -103,6 +103,10 @@ export class ContactService {
 
   //getters & setters
   public getCurrent(){
+    //assign a clone of defaultContacts to current if no contacts were ever registered
+    if(this.current.length == 0 && this.actions.length == 0){
+      this.current = this.DEFAULT_CONTACTS.slice();
+    }
     return this.current;
   };
 

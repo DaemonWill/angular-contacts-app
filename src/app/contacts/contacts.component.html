@@ -1,12 +1,30 @@
-<button class="addBtn" (click)="addContact()">Add</button>
+<button class="addBtn" (click)="toggleAddFlag()">Add</button>
 <button class="undoBtn" (click)="undoAction()">Undo</button>
 <button class="redoBtn" (click)="redoAction()">Redo</button>
 
+<div *ngIf="addFlag">
+  <span>
+    name: <input type="text" [(ngModel)]="contactInfo.name" id="name" required name="name" />
+    planet: <input type="text" [(ngModel)]="contactInfo.planet" id="planet" name="planet" />
+    dimension: <input type="text" [(ngModel)]="contactInfo.dimension" id="dimension" name="dimension" />
+    mobile: <input type="number" [(ngModel)]="contactInfo.mobile" id="mobile" name="mobile"/>
+    home: <input type="number" [(ngModel)]="contactInfo.home" id="home" name="home"/>
+  </span>
+  <br/>
+  <div>
+    <button class="btn btn-success" (click)="addContact()">Submit</button>
+  </div>
+</div>
+
+<div class="gridHeader">
+  <h2>Contacts</h2>
+</div>
+
 <div class="grid" *ngFor="let contact of contacts" (click)="selectContact(contact)">
   <div class="outerBox">
-    <button class="destroy" (click)="removeContact($event, contact)">X</button>
+    <button class="destroy" (click)="removeContact(contact)">X</button>
     <div class="innerBox">
-      <h3>{{contact.name}}</h3>
+      <h3>{{contact.name | uppercase}}</h3>
     </div>
   </div>
 </div>
