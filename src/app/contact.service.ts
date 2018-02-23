@@ -18,11 +18,12 @@ export class ContactService {
     new Contact("Summer", "Earth", "replacement", 1112226666, 5556667777),
     new Contact("Morty", "Earth", "C-137", 1112227777, 5556667777)
   ];
-  private  current : Contact[] = [];
-  private  removed : Contact[] = [];
+  //initiate the current contact list with a copy of the default contacts
+  private current : Contact[] = this.DEFAULT_CONTACTS.slice();
+  private removed : Contact[] = [];
   //track wheter to undo/redo additions or removals
-  private  actions : string[] = [];
-  private  undoneActions : string[] = [];
+  private actions : string[] = [];
+  private undoneActions : string[] = [];
 
   /*
   * Creates a new Contact instance given validated user input
@@ -30,7 +31,7 @@ export class ContactService {
   */
   public makeContact(name: string, planet: string, dimension: string,
     mobile: number, home: number){
-      let newContact: Contact = new Contact(name, planet, dimension, mobile, home);
+      let newContact = new Contact(name, planet, dimension, mobile, home);
       return newContact;
   };
 
@@ -55,6 +56,23 @@ export class ContactService {
       this.current.splice(ind,1);
       this.actions.push("remove");
     }
+  };
+
+  /*
+  * Given a contact's id, update the given contact with the provided inputs
+  */
+  public updateContact(id: string, name: string, planet: string, dimension: string,
+    mobile: number, home: number){
+    let contact = this.current.find(contact => contact.getId() == id);
+    if(contact){
+      let i = this.current.indexOf(contact);
+      //update each applicable param for the contact in the current stack
+      this.current[i].setName(name);
+      this.current[i].setPlanet(planet);
+      this.current[i].setDimension(dimension);
+      this.current[i].setMobile(mobile);
+      this.current[i].setHome(home);
+    };
   };
 
   /*
@@ -103,10 +121,6 @@ export class ContactService {
 
   //getters & setters
   public getCurrent(){
-    //assign a clone of defaultContacts to current if no contacts were ever registered
-    if(this.current.length == 0 && this.actions.length == 0){
-      this.current = this.DEFAULT_CONTACTS.slice();
-    }
     return this.current;
   };
 

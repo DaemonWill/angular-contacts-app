@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ContactService } from '../contact.service';
 import { Contact } from '../contact';
 
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
+  encapsulation: ViewEncapsulation.None,
   styleUrls: ['./contacts.component.css']
 })
 export class ContactsComponent implements OnInit {

@@ -1,6 +1,6 @@
 <button class="addBtn" (click)="toggleAddFlag()">Add</button>
-<button class="undoBtn" (click)="undoAction()">Undo</button>
-<button class="redoBtn" (click)="redoAction()">Redo</button>
+<button class="undoRedoBtn" (click)="undoAction()">Undo</button>
+<button class="undoRedoBtn" (click)="redoAction()">Redo</button>
 
 <div *ngIf="addFlag">
   <span>
@@ -10,9 +10,8 @@
     mobile: <input type="number" [(ngModel)]="contactInfo.mobile" id="mobile" name="mobile"/>
     home: <input type="number" [(ngModel)]="contactInfo.home" id="home" name="home"/>
   </span>
-  <br/>
   <div>
-    <button class="btn btn-success" (click)="addContact()">Submit</button>
+    <button class="btn btn-success" (click)="addContact(); toggleAddFlag()">Submit</button>
   </div>
 </div>
 
@@ -20,11 +19,11 @@
   <h2>Contacts</h2>
 </div>
 
-<div class="grid" *ngFor="let contact of contacts" (click)="selectContact(contact)">
-  <div class="outerBox">
+<div class="grid">
+  <div class="outerBox" *ngFor="let contact of contacts">
     <button class="destroy" (click)="removeContact(contact)">X</button>
     <div class="innerBox">
-      <h3>{{contact.name | uppercase}}</h3>
+      <h3>{{contact.name}}</h3>
     </div>
   </div>
 </div>

@@ -7,19 +7,40 @@ button{
   cursor: pointer;
 }
 
+/*for cases not detailed below, content will be centered with minimum width allowed*/
 div.grid{
-  margin: 0px;
-  width: 960px;
+  margin: 0px auto;
+  width: 1220px;
   padding: 10px 10px;
+}
+
+/*Screen size allows for a max of 4 boxes horizontally to show in grid*/
+@media only screen and (min-width: 1300px){
+  div.grid {
+    margin: 0px auto;
+    width: 1280px;
+    max-width: 1280px;
+    padding: 10px 10px;
+  }
+}
+
+/*Screen size allows for a max of 5 boxes horizontally to show in grid*/
+@media only screen and (min-width: 1620px){
+  div.grid {
+    margin: 0px auto;
+    width: 1600px;
+    max-width: 1600px;
+    padding: 10px 10px;
+  }
 }
 
 div.outerBox {
   border-radius: 8px;
   margin: 10px;
-  height: 300px;
-  width: 300px;
-  max-height: 300px;
-  max-width: 300px;
+  height: 224px;
+  width: 224px;
+  max-height: 224px;
+  max-width: 224px;
   position: relative;
   float: left;
   background-color: lightgrey;
@@ -27,17 +48,27 @@ div.outerBox {
 
 div.innerBox {
   position: relative;
-  top: 27px;
-  left: 27px;
-  height: 246px;
-  width: 246px;
+  top: 22px;
+  left: 22px;
+  height: 180px;
+  width: 180px;
   background-color: lightgrey;
   display: table-cell;
   vertical-align: middle;
 }
 
-button.addBoxBtn {
-  background-color: mediumseagreen;
+button.addBtn {
+  background-color: orangered;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  margin: 20px;
+}
+
+button.undoRedoBtn {
+  background-color: teal;
   border: none;
   border-radius: 4px;
   color: white;
@@ -47,7 +78,7 @@ button.addBoxBtn {
 }
 
 button.destroy {
-  font-size: 20px;
+  font-size: 16px;
   margin: 0px;
   position: absolute;
   top: 0px;
